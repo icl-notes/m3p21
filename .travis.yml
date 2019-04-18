@@ -20,3 +20,12 @@ services:
 script:
 - docker run --rm -v $(pwd):/notes blang/latex /bin/bash -c "cd /notes; ./build.sh $NOTES_FILE"
 - "./test.sh $NOTES_FILE"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: WOCIkg9WZzyKPpuJ292UOLQFou82JqslJq6Ib9RfSXE+w4I3pN/GYYRuwTRxC8FeMyA1h4oFN5ghTldQVSpS4JfzI4/J9Vwj0e9RwNCVL9uOP4+GsKybUy4QPeKLJHTTxr73hyMh4wHvmt38g3DwxyDT1cAfUScp2aSfOL0xumqLnFtutZ5Ogx/fmZOJZJgHEUp+bZW98j0TIzXTpH8KzqqwBiXWT1rGjZlpRomeOlk2vQ43LD3Elno29qP8SdONJqk8/uWM7rPRLbVkheKrd+9W08qShJAGC3MUKhsrjRb49lBoojSV+4tJ/EHVX9qi5Q1tm3hKDmj0DeXZuYf6mSdnOkqWGDYPwJwvckByKjK86W2qSS60DbE1rWbjYHHWP3HD9KoExwrwRtwbmLb4kPWkehy3VAI/oCbC65smhrX0d0bqUSluhom3pYhkhAsXD1ffVdgqUmveGptchD5ScEEVsbWs3y4RGrTgUKLuJOhze1urogRNzkhRKvEMxQ5ZI2ZACZYhsjAxpmtPt+6D6tl3g5wvWpkVoQ1EpIa3Zdue8EG5YTZlEDzqq8fqKqYv2z7HDqytxTJ35qhj0ywKxs0A3Mj6vd0qtvz3srkeDvrdfhuqX1OcZ6UyJd4eHGKOWEteK2h+WXYxXbwZPuCn+wgU3Q8PGvSiCWF9TTjr7Co=
+  file: main.pdf
+  skip_cleanup: true
+  on:
+    repo: icl-notes/m3p21
